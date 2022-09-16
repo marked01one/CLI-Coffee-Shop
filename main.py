@@ -1,6 +1,8 @@
-import prettytable
+from prettytable import PrettyTable
 from random import *
 import time
 from money_manager import Money
 
-time.sleep()
+
+print("Welcome to the Marked's Coffee Shop!")
+
