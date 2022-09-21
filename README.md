@@ -11,5 +11,6 @@ Planned features:
   + And more...
 
 To open the Cafe, use this command:
-    python [full file path goes here]
+   + python [full file path goes here]
+
 #### Currently looking into a more elegant way of opening the Cafe, but for now, this is the most optimal option.
