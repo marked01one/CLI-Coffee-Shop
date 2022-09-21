@@ -1,4 +1,4 @@
-# CLI-Coffee-Shop
+# Marked's Coffee Shop
  
 A simulation of a coffee shop using the command-line interface!
 
@@ -9,3 +9,7 @@ Planned features:
   + For an admin: ability to check amount of resources left in inventory & amount of money received, refill on lacking resources, and even add or remove different flavours of coffee.
   + Admin abilities safely secured behind a two factor authentication system.
   + And more...
+
+To open the Cafe, use this command:
+    python [full file path goes here]
+#### Currently looking into a more elegant way of opening the Cafe, but for now, this is the most optimal option.
