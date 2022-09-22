@@ -1,8 +1,9 @@
 {
     "resources": {
-        "water": 0,
-        "milk": 0,
-        "coffee": 0
+        "water": 1000,
+        "milk": 1000,
+        "coffee": 1000,
+        "money": 0.00
     },
     "flavours": {
         "espresso": {
