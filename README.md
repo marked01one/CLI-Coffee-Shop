@@ -7,7 +7,7 @@
 ## Planned features:
   + [COMPLETE] An updated ASCII menu board created using prettytable 
   + [COMPLETE] A resources inventory containing water, milk, and coffee, alongside potential addons such as sugar and cream
-  + [TESTING] Capability to receive personalized order sentences that utilizes natural language processing (maybe?) 
+  + [TESTING] Capability to receive personalized order sentences that utilizes natural language processing
   + [COMPLETE] For an admin: ability to check amount of resources left in inventory & amount of money received, refill on lacking resources, and even add or remove different flavours of coffee.
   + [COMPLETE] Admin abilities safely secured behind a 2FA system using phone messages via the Twilio API.
   + And more...
