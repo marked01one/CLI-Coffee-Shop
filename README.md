@@ -1,6 +1,7 @@
 # Marked's Coffee Shop
 
 <img src="https://media.giphy.com/media/qHBvLR5Ly9bcB9oaJ6/giphy.gif" width="50%" />
+
 #### A simulation of a coffee shop using the command-line interface!
 
 ## Planned features:
