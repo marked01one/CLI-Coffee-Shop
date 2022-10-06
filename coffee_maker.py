@@ -11,6 +11,7 @@ class CoffeeMaker:
         
         # Retrieve the flavour's resources and price from the aforementioned CSV and JSON files 
         self.flavour = flavour
+        self.size = size
         self.resources = self.inventory_dict["resources"]
         self.flavour_specs = self.inventory_dict["flavours"][flavour]
         self.flavour_price = price_tags[size].to_list()[0]
@@ -19,7 +20,6 @@ class CoffeeMaker:
         print(self.flavour_specs)
         print(self.flavour_price)
         pass
-    
     
     def make_drink(self):
         """"Create" a drink by deducting the amount of resources required to 
@@ -38,16 +38,24 @@ class CoffeeMaker:
             except KeyError:
                 pass
         LoadingScreen(f"Making your {self.flavour}", islong=True)
-        LoadingScreen("Processing your payment", islong=False)
-        self.collect_money()
         print(f"☕ Here's your {self.flavour}! Enjoy your drink!")
         
+    def give_price(self):
+        print(f"A {self.size} {self.flavour} costs ${self.flavour_price}")
+        self.payment = input("Would you like to pay with cash or card?")
+        
     
-    def collect_money(self):
+    
+    def collect_money(self, payment):
         """Deduct the amount of money of the given flavour and size"""
+        LoadingScreen("Processing your payment", islong=False)
+        self.payment_method = payment
+        
         self.inventory_dict["resources"]["money"] += self.flavour_price
         with open("inventory.json", "w") as file:    
             json.dump(self.inventory_dict, file, indent=4)
-    
-coffee_maker = CoffeeMaker("espresso", "Large")
-coffee_maker.make_drink()
+        
+        
+    def calculate_change(self):
+        
+        pass

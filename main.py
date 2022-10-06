@@ -1,9 +1,9 @@
 from prettytable import PrettyTable, from_csv, DOUBLE_BORDER
 from administration import AdminCommands, Authenticator
-from money_manager import Money
-from pathlib import Path
-import json, os, time, config
 from user_interface import LoadingScreen
+from coffee_maker import CoffeeMaker
+import json, os, time, config
+
 
 # Create menu board
 def menu_board():
@@ -14,44 +14,35 @@ def menu_board():
     menu_table.set_style(DOUBLE_BORDER)
     return menu_table
 
-# Prompt the user to place their order
-# order = input("\nWhat do you want to order?\n")
-# order_elements = order.lower().split(" ")
-# no_choice = ["i", "don't", "know"]
-
-
-# if all(word in order_elements for word in no_choice):
-#     print("That's okay! I would recommend the medium-sized espresso with extra sugar."
-#           " Do you like this recommendation? (yes/no)")
-
-def coffee_shop_mode(self):
-    
-    pass
-
 def admin_mode():
-    access_admin = Authenticator()
+    auth = Authenticator()
     proceed_to_admin = False
-    want_to_continue = access_admin.choose_continue()
+    want_to_continue = auth.choose_continue()
     
-    if want_to_continue and access_admin.auth_choice == "1":
-        proceed_to_admin = access_admin.verify_password()
-    if want_to_continue and access_admin.auth_choice == "2":
-        proceed_to_admin = access_admin.verify_2fa()
+    if want_to_continue and auth.auth_choice == "1":
+        pw_input = input("Enter the password:\n")
+        proceed_to_admin = auth.verify_password(pw_input)
+        
+    if want_to_continue and auth.auth_choice == "2":
+        correct_pw = auth.create_otp()
+        print("A one-time password has been sent to the admin's phone")
+        pw_input = input("Enter the one-time password:\n")
+        proceed_to_admin = auth.verify_password(pw_input, correct_pw)
     
     if not proceed_to_admin:
-        return # This should return the enter admin function
+        return # This should send the user back to the main menu
         
     still_admin = True
     while still_admin:
         admin_commands = AdminCommands()
-        input_code = admin_commands.command_input()
+        input_code = admin_commands.enter_command()
         # if user choose "0" --> exit Admin Mode
         if input_code == "0":
             config.clear()
             LoadingScreen("Exiting Admin Mode, returning to the Cafe", islong=True)
             still_admin = admin_commands.exit_admin()
             continue
-        
+        # If user choose "2" --> print resource report
         if input_code == "1":
             config.clear()
             LoadingScreen("Printing Resources Report", islong=True)
@@ -79,6 +70,7 @@ def main():
         order = input("\nWhat do you want to order?\n")
         if order == "mode.admin":
             admin_mode()
+            continue
         
 
 if __name__ == '__main__':
