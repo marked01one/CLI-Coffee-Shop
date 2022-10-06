@@ -1,8 +1,13 @@
-# Marked's Coffee Shop
 
-<img src="https://media.giphy.com/media/qHBvLR5Ly9bcB9oaJ6/giphy.gif" width="50%" />
 
-#### A simulation of a coffee shop using the command-line interface!
+<div align="center">
+  <h1> Marked's Coffee Shop </h1>
+  <img src="https://media.giphy.com/media/qHBvLR5Ly9bcB9oaJ6/giphy.gif" width="50%"/>
+  <h4> A simulation of a coffee shop using the command-line interface! </h4>
+  <br>
+</div>
+
+
 
 ## Planned features:
   + [COMPLETE] An updated ASCII menu board created using prettytable 
